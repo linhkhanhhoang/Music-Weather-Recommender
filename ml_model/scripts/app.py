@@ -10,8 +10,8 @@ import functions
 app = Flask(__name__)
 
 # Load the model and song dataframe at startup
-model = joblib.load('/Users/linhkhanhhoang/Music-Weather-Recommender/ml_model/models/music_weather_model.pkl')
-song_df = pd.read_csv('/Users/linhkhanhhoang/Music-Weather-Recommender/ml_model/data/278k_labelled_uri.csv')  # Make sure to update this path
+model = joblib.load('/ml_model/models/music_weather_model.pkl')
+song_df = pd.read_csv('/ml_model/data/278k_labelled_uri.csv')  # Make sure to update this path
 song_df.rename(columns={"labels": "mood"}, inplace = True)
 song_df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0'], inplace=True)
 
@@ -34,4 +34,4 @@ def get_recommendations():
     return top_songs
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
