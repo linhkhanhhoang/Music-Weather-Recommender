@@ -1,8 +1,8 @@
 const { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
-const FLASK_API_URL = 'http://127.0.0.1:5000/recommend';
 require('dotenv').config({ path: '../.env' });
 
+const FLASK_API_URL = process.env.EC2_URL;
 const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHER_API_KEY;
 module.exports = {
     data: new SlashCommandBuilder()
