@@ -51,12 +51,9 @@ module.exports = {
                 // Add recommended songs to the embed
                 let songList = '';
                 for (let i = 0; i < recommended_songs.length; i++) {
-                    songList += `${i + 1}. ${recommended_songs[i]}\n`;
+                    songList += `${i + 1}. ${recommended_songs[i].split(":")[-1]}\n`;
                     // Discord has a limit of 1024 characters per field
-                    if (songList.length > 900 || i === recommended_songs.length - 1) {
-                        embed.addFields({ name: 'Recommended Songs', value: songList });
-                        songList = '';
-                    }
+                    
                 }
 
                 // Send the embed as a reply
