@@ -2,7 +2,7 @@ const { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, SlashC
 const axios = require('axios');
 require('dotenv').config({ path: '../.env' });
 
-const FLASK_API_URL = 'http://127.0.0.1:5000/recommend';
+const FLASK_API_URL = process.env.EC2_URL;
 const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHER_API_KEY;
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
